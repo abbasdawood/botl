@@ -1,0 +1,22 @@
+{
+  "name": "botl-new",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.8.1",
+    "bootstrap": "4.0.0-beta",
+    "font-awesome": "fontawesome#^4.7.0"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "assets/stylesheets/_bootstrap.scss",
+        "assets/fonts/bootstrap/*",
+        "assets/javascripts/bootstrap.js"
+      ]
+    }
+  },
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0"
+  }
+}

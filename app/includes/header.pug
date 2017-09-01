@@ -1,0 +1,18 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  a.navbar-brand(href='#')
+    img.d-none.d-sm-inline-block.align-top(src='../images/logobig.svg', width='80', height='36', alt='')
+    img.d-sm-none.align-top.visible-sm-up(src='../images/logosmall.svg', width='30', height='30', alt='')
+  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link(href='#')
+          | Features 
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link(href='#') Range
+      li.nav-item
+        a.nav-link(href='#') Gallery
+    form.form-inline.my-2.my-lg-0
+      button.btn.btn-outline-success.my-2.my-sm-0(type='button') Shop
