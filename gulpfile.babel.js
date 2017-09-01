@@ -4,9 +4,12 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
 import del from 'del';
 import { stream as wiredep } from 'wiredep';
+import * as fs from 'fs';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
+
+var awsCredentials = JSON.parse(fs.readFileSync('./credentials.json'));
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -53,10 +56,30 @@ gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
 
 gulp.task('html', ['views', 'styles', 'scripts'], () => {
   // return gulp.src('app/*.html')
-  return gulp.src(['app/*.html', '.tmp/*.html'])
+  return gulp.src(['.tmp/*.html'])
     .pipe($.useref({ searchPath: ['.tmp', 'app', '.'] }))
     .pipe($.if('*.js', $.uglify()))
-    .pipe($.if('*.css', $.cssnano()))
+    .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
+    .pipe($.if('*.js', $.rev()))
+    .pipe($.if('*.css', $.rev()))
+    .pipe($.revReplace())
+    .pipe($.if('*.html', $.htmlmin({ collapseWhitespace: true })))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('htmlbuild', ['views', 'styles', 'scripts'], () => {
+  // return gulp.src('app/*.html')
+  return gulp.src(['.tmp/*.html'])
+    .pipe($.useref({ searchPath: ['.tmp', 'app', '.'] }))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('rev', () => {
+  return gulp.src('dist/*.html')
+    .pipe($.if('*.js', $.uglify()))
+    .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
+    .pipe($.if('*.js', $.rev()))
+    .pipe($.if('*.css', $.rev()))
     .pipe($.if('*.js', $.rev()))
     .pipe($.if('*.css', $.rev()))
     .pipe($.revReplace())
@@ -196,12 +219,15 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app/layouts'));
 });
 
-gulp.task('deploy', ['default'], () => {
+gulp.task('deploytest', () => {
   // create a new publisher
   const publisher = $.awspublish.create({
     params: {
-      'Bucket': '...'
-    }
+      Bucket: 'test.botl.in'
+    },
+    accessKeyId: awsCredentials.accessKeyId,
+    secretAccessKey: awsCredentials.secretAccessKey,
+    signatureVersion: 'v3'
   });
 
   // define custom headers
@@ -216,7 +242,7 @@ gulp.task('deploy', ['default'], () => {
     .pipe($.awspublish.reporter());
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+gulp.task('build', ['lint', 'htmlbuild', 'images', 'fonts', 'extras','rev'], () => {
   return gulp.src('dist/**/*').pipe($.size({ title: 'build', gzip: true }));
 });
 
