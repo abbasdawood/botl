@@ -1,7 +1,7 @@
 .w-100
 .jumbotron.text-center.gallery#gallery
 	p.lead
-		a.btn.btn-primary.btn-lg(href='//www.facebook.com/pg/BOTL.Goa/photos/', role='button', target='_blank') Gallery
+		a.btn.btn-primary.btn-lg(href='//in.pinterest.com/BOTLUpcycledGlassware/pins/', role='button', target='_blank') Gallery
 .container
 	.row.text-center
 		.col
@@ -40,15 +40,15 @@
 							small#emailHelp.form-text.text-muted We'll never share your email with anyone else.
 						.form-group
 							label(for='userMobile') Mobile
-							input#userMobile.form-control(type='tel', placeholder='Phone', required)
+							input#userMobile.form-control(type='tel', placeholder='Phone', required, name='phone')
 						.form-group
 							label(for='type') Your reason for reaching us
-							select#type.form-control
+							select#type.form-control(name='type')
 								option(value='Customise') Customise
 								option(value='Query') Query
 						.form-group
 							label(for='message') Your message
-							textarea#message.form-control(rows='5')
+							textarea#message.form-control(rows='5', name='message')
 				.modal-footer
 					button.btn.btn-secondary.float-left(type='button', data-dismiss='modal') Close
 					button.btn.btn-primary(type='submit') Send

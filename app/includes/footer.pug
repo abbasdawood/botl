@@ -1,32 +1,30 @@
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.footer
-	.container
-		.row(style="width: 100%")
-			.col-xs-12.col-md-4.text-white.align-middle
+	.container(style='overflow-x:hidden')
+		.row
+			.col-xs-12.col-md-6.text-white
 				span.d-block
 					| &copy; 2017 Meso Design LLP
 				address
 					strong BOTL Upcycled Glassware
 					br
-					|     House no.3/26A, Muddawaddo
-					br
-					|     Saligao, Bardez, Goa-403511
-			.col-xs-12.col-md-4.text-white
-				ul.list-inline.text-white.text-center
-					li.list-inline-item
-						a.nav-link(href='//www.facebook.com/botl.goa')
-							i.fa.fa-facebook.fa-2
-					li.list-inline-item
-						a.nav-link(href='#')
-							i.fa.fa-instagram.fa-2
-					li.list-inline-item
-						a.nav-link(href='//in.pinterest.com/BOTLUpcycledGlassware/pins/')
-							i.fa.fa-pinterest.fa-2
-					li.list-inline-item
-						a.nav-link(href='#')
-							Terms
-			.col-xs-12.col-md-4.align-middle.text-white
-				address.text-right
+					|     House no.3/26A, Muddawaddo, Saligao, Bardez, Goa-403511
+					br 
 					abbr(title='Phone') P:
-					|  +91 8689800046 &nbsp;&nbsp;
+					|  +91 8689800046&nbsp;&nbsp;
 					abbr(title='Email') E:
 					|  message[at]botl.in
+			.col-xs-12.col-md-6.text-white.align-self-end
+				ul.list-inline.text-white.float-md-right
+					li.list-inline-item
+						a.nav-link(href='//www.facebook.com/botl.goa', target='_blank')
+							i.fa.fa-facebook.fa-2
+					li.list-inline-item
+						a.nav-link(href='//instagram.com/botl.in', target='_blank')
+							i.fa.fa-instagram.fa-2
+					li.list-inline-item
+						a.nav-link(href='//in.pinterest.com/BOTLUpcycledGlassware/pins/', target='_blank')
+							i.fa.fa-pinterest.fa-2
+					li.list-inline-item
+						a.navlink(href='terms.pdf')
+							i.fa-fa-info-circle.fa-2
+					

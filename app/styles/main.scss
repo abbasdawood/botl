@@ -15,6 +15,9 @@ $fa-font-path: "../fonts";
 }
 
 
+
+
+
 /* Space out content a bit */
 
 body {
@@ -127,7 +130,8 @@ body {
       background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url('../images/gallery@3x.jpg');
     }
   }
-  a, button.btn {
+  a,
+  button.btn {
     border: 1px solid rgba(255, 255, 255, 0.9);
     background: rgba(0, 0, 0, 0.3);
     transform: translateY(0px);
@@ -154,7 +158,10 @@ body {
     font-weight: 300;
   }
   &.feature-card {
-    max-height: 460px;
+    max-height: 600px;
+    @media only screen and (min-width: 576px) {
+      max-height: 460px;
+    }
     overflow: hidden;
     .card-title {
       text-transform: uppercase;
@@ -169,44 +176,42 @@ body {
       padding: 0;
       h3 {
         text-align: center;
-        padding: 1.25rem;
+        padding: 0.5rem;
         background: #E6E6E8;
         color: black;
         font-weight: 200;
         text-transform: uppercase;
       }
-      &:hover {
-        h3 {
-          background: #008045;
-          color: white;
-        }
+    }
+    &:hover {
+      h3 {
+        background: #008045;
+        color: white;
       }
     }
   }
+
   .card-img-overlay {
+    @media only screen and (max-width: 480px) {
+      h4 {
+        font-size: 1.2rem;
+      }
+    }
     padding: 0;
-    background-image: linear-gradient(rgba(0,
-    0,
-    0,
-    0.35),
-    rgba(0,
-    0,
-    0,
-    0.25));
     h4,
     p {
-      padding: 1.25rem;
+      padding: 0.75rem;
       text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
     }
     p {
       transition: all 0.5s;
       opacity: 0;
+      padding-top: 32px;
       transform: translateY(10);
     }
     h4 {
       margin-bottom: 16px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-      padding-bottom: 16px;
       background-image: linear-gradient(rgba(0,
       0,
       0,
@@ -217,7 +222,9 @@ body {
       0.5));
     }
 
-    &:hover {
+    &:hover,
+    &:focus,
+    &.hovered {
       transition: all 0.2s;
       background-image: linear-gradient(rgba(0,
       0,
@@ -237,10 +244,7 @@ body {
 }
 
 .footer {
-  .align-middle {
-    margin-top: 8px;
-  }
-
+  padding: 32px 0;
   a.align-middle {
     color: white;
     opacity: 0.75;
@@ -252,21 +256,25 @@ body {
   }
 
   .fa-2 {
-    font-size: 1.1em;
+    font-size: 1.4em;
   }
 
   ul {
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-
+    padding-top: 16px;
+    margin-top: 16px;
+    text-align: center;
     li {
-      width: 25%;
       display: inline-block !important;
       a {
         color: white;
         text-decoration: none;
       }
     }
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
   }
 
   address,
@@ -278,10 +286,19 @@ body {
     margin-right: 8px;
   }
 
+  .row {
+    width: 110%;
+  }
+
 
   @media only screen and (min-width: 576px) {
+    .row {
+      width: 100%;
+    }
     ul {
       border: none;
+      margin-top: 0;
+      padding-top: 0;
     }
     li {
       width: auto;
