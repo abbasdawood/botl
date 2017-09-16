@@ -1,6 +1,11 @@
 .container#products
   .row
     .col
+      h2.text-uppercase.text-center Products
+    .w-100
+    .col-12
+      br
+      br      
       .card-group
         .card.product-card
           .card-body
@@ -14,3 +19,16 @@
           .card-body
             h3.card-title Lighting
           img.card-img-bottom(alt='lighting' srcset='../images/range/lightingorig.jpg 1x, ../images/range/lighting@2x.jpg 2x, ../images/range/lighting@3x.jpg 3x')
+      br
+    .col-12.text-center
+      button.btn.btn-lg.btn-secondary(data-toggle='modal' data-target='#locatorModal') Locate Us
+#locatorModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='locatorModalLabel', aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#locatorModalLabel.modal-title Locate Us
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .list-group#client-list
+      .modal-footer
+        button.btn.btn-secondary.btn-block(type='button', data-dismiss='modal') Close

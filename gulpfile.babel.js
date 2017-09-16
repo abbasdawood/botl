@@ -51,7 +51,7 @@ const testLintOptions = {
   }
 };
 
-gulp.task('lint', lint('app/scripts/**/*.js', { globals: ['$', 'jQuery'], rules: { 'no-unused-vars': false } }));
+gulp.task('lint', lint('app/scripts/**/*.js', { globals: ['$', 'jQuery', 'contentful'], rules: { 'no-unused-vars': false, 'camelcase': false } }));
 gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
 
 gulp.task('html', ['views', 'styles', 'scripts'], () => {
@@ -131,7 +131,8 @@ gulp.task('serve', ['views', 'styles', 'scripts', 'fonts'], () => {
     server: {
       baseDir: ['.tmp', 'app'],
       routes: {
-        '/bower_components': 'bower_components'
+        '/bower_components': 'bower_components',
+        '/node_modules' : 'node_modules'
       }
     }
   });
@@ -224,6 +225,29 @@ gulp.task('deploytest', () => {
   const publisher = $.awspublish.create({
     params: {
       Bucket: 'test.botl.in'
+    },
+    accessKeyId: awsCredentials.accessKeyId,
+    secretAccessKey: awsCredentials.secretAccessKey,
+    signatureVersion: 'v3'
+  });
+
+  // define custom headers
+  const headers = {
+    'Cache-Control': 'max-age=315360000, no-transform, public'
+  };
+
+  return gulp.src('dist/**/*.*')
+    .pipe(publisher.publish(headers))
+    .pipe(publisher.sync())
+    .pipe(publisher.cache())
+    .pipe($.awspublish.reporter());
+});
+
+gulp.task('deployprod', () => {
+  // create a new publisher
+  const publisher = $.awspublish.create({
+    params: {
+      Bucket: 'botl.in'
     },
     accessKeyId: awsCredentials.accessKeyId,
     secretAccessKey: awsCredentials.secretAccessKey,

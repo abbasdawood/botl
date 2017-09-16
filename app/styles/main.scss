@@ -18,6 +18,9 @@ $fa-font-path: "../fonts";
 
 
 
+
+
+
 /* Space out content a bit */
 
 body {
@@ -27,8 +30,8 @@ body {
 .top-nav {
   font-weight: 600;
   text-transform: uppercase;
-  button {
-    text-transform: uppercase;
+  .nav-link {
+    color: #DEE6E6 !important;
   }
 }
 
@@ -56,6 +59,10 @@ body {
     h2 {
       margin-bottom: 16px;
       font-weight: 300;
+    }
+
+    p.lead {
+      margin-top: 32px;
     }
 
     /* Retina */
@@ -149,6 +156,19 @@ body {
   }
 }
 
+#team {
+  margin:32px auto;
+  footer{
+    color:white;
+  }
+  img {
+    height: 128px;
+    width: 128px;
+    margin-bottom: 24px;
+  }
+  background: linear-gradient(90deg, #2D444A, #00A558);
+}
+
 .bg-dark {
   background-color: #222 !important;
 }
@@ -206,8 +226,13 @@ body {
     p {
       transition: all 0.5s;
       opacity: 0;
-      padding-top: 32px;
       transform: translateY(10);
+      padding-top: 4px;
+      font-size: 12px;
+      @media only screen and (min-width: 576px) {
+        padding-top: 8px;
+        font-size: 1rem;
+      }
     }
     h4 {
       margin-bottom: 16px;
@@ -245,18 +270,9 @@ body {
 
 .footer {
   padding: 32px 0;
-  a.align-middle {
-    color: white;
-    opacity: 0.75;
-    outline: none;
-    text-decoration: none;
-    &:hover {
-      opacity: 1;
-    }
-  }
 
   .fa-2 {
-    font-size: 1.4em;
+    font-size: 2em;
   }
 
   ul {
@@ -277,39 +293,21 @@ body {
     color: white;
   }
 
-  address,
-  span {
-    text-align: center;
-  }
-
   abbr {
     margin-right: 8px;
   }
+}
 
-  .row {
-    width: 110%;
-  }
+#client-logos{
+  width:100%;
+  overflow-x: scroll;
+  overflow-y:hidden;
+}
 
-
-  @media only screen and (min-width: 576px) {
-    .row {
-      width: 100%;
-    }
-    ul {
-      border: none;
-      margin-top: 0;
-      padding-top: 0;
-    }
-    li {
-      width: auto;
-    }
-
-    address,
-    span {
-      text-align: left;
-      &.text-right {
-        text-align: right;
-      }
-    }
+#client-list{
+  max-height:360px;
+  overflow-y: scroll;
+  .col-xs-6{
+    min-height: 200px;
   }
 }

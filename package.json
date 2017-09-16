@@ -3,6 +3,11 @@
   "engines": {
     "node": ">=0.12.0"
   },
+  "scripts": {
+    "prestage": "gulp",
+    "stage": "cp -v terms.pdf dist/ & gulp deploytest",
+    "prod": "cp -v terms.pdf dist/ & gulp deployprod"
+  },
   "devDependencies": {
     "babel-core": "^6.4.0",
     "babel-preset-es2015": "^6.3.13",
@@ -43,5 +48,8 @@
         "single"
       ]
     }
+  },
+  "dependencies": {
+    "contentful": "4.6.1"
   }
 }

@@ -2,27 +2,19 @@
 .jumbotron.text-center.gallery#gallery
 	p.lead
 		a.btn.btn-primary.btn-lg(href='//in.pinterest.com/BOTLUpcycledGlassware/pins/', role='button', target='_blank') Gallery
-.container
+.container.pt-3
 	.row.text-center
 		.col
-			h2 Clients
-		.w-100
-		.col-4
-			img.img-fluid(alt='only' srcset='../images/clients/only.svg')
-		.col-4
-			img.img-fluid(alt='club mahindra' srcset='../images/clients/mahindra.svg')
-		.col-4
-			img.img-fluid(alt='indian motorcycles' srcset='../images/clients/indianmotor.svg')
-		.col-4
-			img.img-fluid(alt='wri' srcset='../images/clients/wri.svg')
-		.col-4
-			img.img-fluid(alt='ottersclub' srcset='../images/clients/ottersclub.svg')
-		.col-4
-			img.img-fluid(alt='broaster' srcset='../images/clients/broaster.svg')
+			h2.text-uppercase Clients
+	.row#client-logos.flex-row.flex-nowrap
 .jumbotron.text-center.connect#connect
+	br
+	br
+	br
 	h2.display-4 Connect With Us
 	p.lead
 		a.btn.btn-primary.btn-lg(href='//www.facebook.com/pg/BOTL.Goa/shop/', role='button', target='_blank') Shop
+		|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		button.btn.btn-primary.btn-lg(type='button', data-toggle='modal', data-target='#contactModal') Customise
 #contactModal.modal.fade(tabindex='-1', role='dialog')
 	.modal-dialog(role='document')
