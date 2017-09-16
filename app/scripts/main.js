@@ -11,7 +11,7 @@ $(function() {
 
   function renderImage(image) {
     if (image && image.fields.file) {
-      return '<div class="col-xs-6 col-md-2"><img src="' + image.fields.file.url + '" width="200" height="200" alt="' + image.fields.title + '"/></div>';
+      return '<div class="logo-holder"><img class="client-logo" src="' + image.fields.file.url + '" alt="' + image.fields.title + '"/></div>';
     } else {
       return '';
     }
