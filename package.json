@@ -5,6 +5,7 @@
   },
   "scripts": {
     "prestage": "gulp",
+    "preprod": "gulp",
     "stage": "cp -v terms.pdf dist/ & gulp deploytest",
     "prod": "cp -v terms.pdf dist/ & gulp deployprod"
   },
