@@ -21,6 +21,8 @@ $fa-font-path: "../fonts";
 
 
 
+
+
 /* Space out content a bit */
 
 body {
@@ -83,7 +85,6 @@ body {
   }
   &.connect {
     background-image: url('../images/connect.jpg');
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url('../images/connect.jpg');
     margin-bottom: 0;
     margin-top: 32px;
     height: 400px;
@@ -157,16 +158,18 @@ body {
 }
 
 #team {
-  margin:32px auto;
-  footer{
-    color:white;
+  margin: 32px auto;
+  footer {
+    color: white;
   }
   img {
     height: 128px;
     width: 128px;
     margin-bottom: 24px;
   }
-  background: linear-gradient(90deg, #2D444A, #00A558);
+  background: linear-gradient(90deg,
+  #2D444A,
+  #00A558);
 }
 
 .bg-dark {
@@ -298,26 +301,41 @@ body {
   }
 }
 
-#client-logos{
-  width:100%;
+#client-logos {
+  width: 100%;
   overflow-x: scroll;
-  overflow-y:hidden;
+  overflow-y: hidden;
 }
 
-#client-list{
-  max-height:360px;
+#client-list {
+  max-height: 360px;
   overflow-y: scroll;
-  .col-xs-6{
+  .col-xs-6 {
     min-height: 200px;
   }
 }
 
-.client-logo{
+.client-logo {
   width: 200px;
   height: 200px;
 }
 
-.logo-holder{
+.logo-holder {
   display: inline-block;
   margin-right: 8px;
+}
+
+.arrow {
+  height: 64px;
+  width: 64px;
+  display: inline-block;
+  position: absolute;
+  margin-top: 100px;
+  &.right {
+    right: 0;
+  }
+  &.left {
+    left: 0;
+    text-align: right;
+  }
 }

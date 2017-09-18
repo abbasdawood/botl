@@ -92,4 +92,16 @@ $(function() {
     });
   });
 
+  $('.arrow').each(function(index, element) {
+    $(this).on('click', function() {
+      var direction = $(this)[0].classList[1];
+      event.preventDefault();
+      var move = direction === 'right' ? '+=200px' : '-=200px';
+
+      $('#client-logos').animate({
+        scrollLeft: move
+      }, 'slow');
+    });
+  });
+
 });
