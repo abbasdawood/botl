@@ -1,6 +1,33 @@
 $(function() {
   'use strict';
 
+  var featureCard = $('.feature-card');
+
+  featureCard.on('click', function(e) {
+    var element = $(this);
+    if (element.hasClass('hovered')) {
+      $(this).removeClass('hovered');
+    } else {
+      $(this).addClass('hovered');
+    }
+  });
+
+  featureCard.on('mouseover', function(e) {
+    $(this).addClass('hovered');
+  });
+
+  featureCard.on('touchstart', function(e) {
+    $(this).addClass('hovered');
+  });
+
+  featureCard.on('mouseleave', function() {
+    $(this).removeClass('hovered');
+  });
+
+  featureCard.on('touchend', function(e) {
+    $(this).removeClass('hovered');
+  });
+
   var contentfulClient = contentful.createClient({
     accessToken: 'a095c6914701f1266b26a6bcf1ed9a76ece4da8e12bb56e42190d91c59a329ba',
     space: '74mfkbseo8bs'
@@ -55,6 +82,14 @@ $(function() {
       .then(function(entries) {
         $('#client-list')[0].innerHTML = renderLocations(entries.items);
       });
+  });
+
+  $('.product-card').each(function(index, element) {
+    $(this).on('click', function() {
+      event.preventDefault();
+      event.stopPropagation();
+      window.open($(this).data().page, '_blank');
+    });
   });
 
 });
